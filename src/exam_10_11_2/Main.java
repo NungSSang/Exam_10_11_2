@@ -32,11 +32,12 @@ public class Main {
 				lastId++;
 				article = new Article(lastId, Utill.getDate(), title, body);
 				articles.add(article);
+				System.out.println("게시글이 작성되었습니다.");
 			}
 
 			if (cmd.equals("article list")) {
-				System.out.println("게시글 보기");
 				for (int i = 0; i < articles.size(); i++) {
+					System.out.println("게시글 보기");
 					System.out.printf("%d , %s , %s , %s\n", articles.get(i).getId(), articles.get(i).getRegDate(),
 							articles.get(i).getTitle(), articles.get(i).getBody());
 				}
@@ -44,6 +45,7 @@ public class Main {
 				String cmdStr[] = cmd.split(" ");
 				for (int i = 0; i < articles.size(); i++) {
 					if (cmd.contains(articles.get(i).getTitle())) {
+						System.out.println("게시글 보기");
 						System.out.printf("%d , %s , %s , %s\n", articles.get(i).getId(), articles.get(i).getRegDate(),
 								articles.get(i).getTitle(), articles.get(i).getBody());
 					}
@@ -51,20 +53,20 @@ public class Main {
 			}
 
 			if (cmd.contains("article detail ")) {
-				System.out.println("게시글 디테일");
 				String cmdStr[] = cmd.split(" ");
 				for (int i = 0; i < articles.size(); i++) {
 					if (Integer.parseInt(cmdStr[2]) == articles.get(i).getId()) {
+						System.out.println("게시글 상세보기");
 						System.out.printf("번호: %d\n작성 날짜: %s\n제목: %s\n내용: %s\n", articles.get(i).getId(),
 								articles.get(i).getRegDate(), articles.get(i).getTitle(), articles.get(i).getBody());
 					}
 				}
 			}
 			if (cmd.contains("article modify ")) {
-				System.out.println("게시글 수정");
 				String cmdStr[] = cmd.split(" ");
 				for (int i = 0; i < articles.size(); i++) {
 					if (Integer.parseInt(cmdStr[2]) == articles.get(i).getId()) {
+						System.out.println("게시글 수정");
 						System.out.println("제목: ");
 						articles.get(i).setTitle(sc.nextLine());
 						System.out.println("내용: ");
@@ -75,10 +77,10 @@ public class Main {
 				}
 			}
 			if (cmd.contains("article delete ")) {
-				System.out.println("게시글 삭제");
 				String cmdStr[] = cmd.split(" ");
 				for (int i = 0; i < articles.size(); i++) {
 					if (Integer.parseInt(cmdStr[2]) == articles.get(i).getId()) {
+						System.out.println("게시글 삭제");
 						articles.remove(i);
 						System.out.println("게시글이 삭제되었습니다.");
 					}

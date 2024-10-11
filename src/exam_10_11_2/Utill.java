@@ -9,6 +9,4 @@ public class Utill {
 		return now.format(formatter);
 	}
 	
-	
-	
 }
